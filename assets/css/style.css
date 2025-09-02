@@ -95,11 +95,21 @@ a{ color:var(--brand-accent); }
 }
 .footer a{ color:inherit; text-decoration:underline; }
 
-/* Make header logo stand out on dark background */
-.brand-logo {
-  background: #ffffff; /* White background */
-  border-radius: 8px;  /* Rounded corners (set 50% for a circle) */
-  padding: 4px;        /* Space around logo */
+/* Ensure the header logo pops over the dark gradient */
+.header .brand-logo{
+  background: #fff;          /* solid white behind the logo */
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 0 0 1px #ffffff40, 0 3px 10px rgba(0,0,0,.12);
   display: grid;
   place-items: center;
 }
+
+/* Make the image fit the box neatly */
+.header .brand-logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
