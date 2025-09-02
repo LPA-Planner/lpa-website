@@ -22,14 +22,6 @@
   --space-4: 2rem;
 }
 
-.brand-logo {
-  background: #ffffff; /* white background */
-  border-radius: 8px;  /* rounded corners */
-  padding: 4px;        /* some breathing room around logo */
-  display: grid;
-  place-items: center;
-}
-
 
 /* Reset-ish */
 *{ box-sizing:border-box; }
@@ -103,3 +95,11 @@ a{ color:var(--brand-accent); }
 }
 .footer a{ color:inherit; text-decoration:underline; }
 
+
+.brand-logo {
+  background: #ffffff; /* white background */
+  border-radius: 8px;  /* rounded corners */
+  padding: 4px;        /* some breathing room around logo */
+  display: grid;
+  place-items: center;
+}
