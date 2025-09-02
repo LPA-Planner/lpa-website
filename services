@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services & Pricing – LPA Planner</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="brand" href="/"><div class="brand-logo">🏠</div><div class="brand-title">LPA Planner</div></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h1>Services & Pricing</h1>
+      <p class="muted">Clear, fixed-fee options. We can tailor scope where needed.</p>
+
+      <div class="list cols-3" style="margin-top:1rem;">
+        <div class="card">
+          <h2>Quick Review</h2>
+          <p><strong>£50</strong> · 30 minutes</p>
+          <p class="muted">Brief review of your planning situation with practical next steps.</p>
+        </div>
+        <div class="card">
+          <h2>Document Review</h2>
+          <p><strong>£100</strong> · 1 hour</p>
+          <p class="muted">Detailed review of refusals, enforcement notices, or key documents with written recommendations.</p>
+        </div>
+        <div class="card">
+          <h2>Appeal Submission</h2>
+          <p><strong>£400</strong></p>
+          <p class="muted">Preparation of robust submissions for enforcement or planning appeals.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1.5rem;">
+        <p class="muted"><strong>Notes:</strong> scope agreed in writing before work begins. Payment terms as per our <a href="/terms.html">Terms</a>.</p>
+        <p><a class="button" href="mailto:info@lpaplanner.co.uk">Request a review</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© <span id="y"></span> LPA Planner. See <a href="/privacy.html">Privacy</a> and <a href="/terms.html">Terms</a>. Contact details on the <a href="/contact.html">Contact page</a>.</small>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
