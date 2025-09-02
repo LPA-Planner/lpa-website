@@ -95,11 +95,11 @@ a{ color:var(--brand-accent); }
 }
 .footer a{ color:inherit; text-decoration:underline; }
 
-
+/* Make header logo stand out on dark background */
 .brand-logo {
-  background: #ffffff; /* white background */
-  border-radius: 8px;  /* rounded corners */
-  padding: 4px;        /* some breathing room around logo */
+  background: #ffffff; /* White background */
+  border-radius: 8px;  /* Rounded corners (set 50% for a circle) */
+  padding: 4px;        /* Space around logo */
   display: grid;
   place-items: center;
 }
