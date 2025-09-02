@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – LPA Planner</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <a class="brand" href="/"><div class="brand-logo">🏠</div><div class="brand-title">LPA Planner</div></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <h1>Contact</h1>
+
+      <div class="card">
+        <p><strong>Email:</strong> <a href="mailto:info@lpaplanner.co.uk">info@lpaplanner.co.uk</a></p>
+        <p><strong>Postal:</strong> <span class="muted">PO Box details to be added</span></p>
+        <p class="muted">Best way to reach us is via email. We’ll reply with availability and the next steps.</p>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h2>Start with a £50 review</h2>
+        <p class="muted">A short initial review to outline your options and most effective next step.</p>
+        <p><a class="button" href="mailto:info@lpaplanner.co.uk">Request a review</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© <span id="y"></span> LPA Planner. See <a href="/privacy.html">Privacy</a> and <a href="/terms.html">Terms</a>. Contact details on the <a href="/contact.html">Contact page</a>.</small>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
