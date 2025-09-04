@@ -115,9 +115,9 @@ a{ color:var(--brand-accent); }
 
 /* Tighter spacing only on the homepage */
 .home .section {
-  padding: 1rem 0;   /* reduce top/bottom padding */
+  padding: 0.5rem 0;   /* reduce top/bottom padding */
 }
 
 .home h2 {
-  margin-top: 1rem;  /* reduce the extra margin above headings */
+  margin-top: 0.5rem;  /* reduce the extra margin above headings */
 }
