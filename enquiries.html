@@ -5,38 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LPA Planner · New Enquiry</title>
 
-  <!-- This page uses ONLY the classes and tokens defined in your existing site stylesheet. -->
+  <!-- USE THE SAME PATH YOUR OTHER PAGES USE -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- If your other pages use "./style.css" or "/assets/style.css", change it here too. -->
+
+  <!-- Minimal, form-only styles (brand comes from style.css) -->
   <style>
-    /* Minimal, form-only styling that plays nicely with your base theme */
     form { width:100%; }
     form label{ display:block; font-weight:600; margin-top: var(--space-1); }
-    form input,
-    form select,
-    form textarea{
-      display:block;
-      width:100%;
-      max-width:100%;
-      box-sizing:border-box;
-      padding:.65rem .75rem;
-      border:1px solid #eef1f3;
-      border-radius: var(--radius);
-      font:inherit;
-      line-height:1.4;
-      background:#fff;
+    form input, form select, form textarea{
+      display:block; width:100%; max-width:100%; box-sizing:border-box;
+      padding:.65rem .75rem; border:1px solid #eef1f3; border-radius: var(--radius);
+      font:inherit; line-height:1.4; background:#fff;
     }
     form textarea{ resize: vertical; }
     form button[type="submit"]{ margin-top: var(--space-2); }
-    /* Tiny helper so legends look like section titles within cards */
     fieldset{ border:0; padding:0; margin: var(--space-2) 0 0 0; }
     legend{ font-weight:700; margin-bottom:.5rem; }
   </style>
 </head>
 <body>
-  <!-- Header copied to match the site's style.css classes -->
+  <!-- Header uses your site classes/styles from style.css -->
   <header class="header" role="banner">
     <div class="container">
       <a class="brand" href="/">
-        <span class="brand-logo" aria-hidden="true"><!-- optional logo img here if you use one --></span>
+        <span class="brand-logo"><!-- <img src="/assets/img/logo-mark.svg" alt=""> --></span>
         <span class="brand-title">LPA Planner</span>
       </a>
       <nav class="nav" aria-label="Primary">
