@@ -4,55 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LPA Planner · New Enquiry</title>
-
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- Minimal, form-only styles (brand comes from style.css) -->
-  <style>
-    form { width:100%; }
-    form label{ display:block; font-weight:600; margin-top: var(--space-1); }
-    form input, form select, form textarea{
-      display:block; width:100%; max-width:100%; box-sizing:border-box;
-      padding:.65rem .75rem; border:1px solid #eef1f3; border-radius: var(--radius);
-      font:inherit; line-height:1.4; background:#fff;
-    }
-    form textarea{ resize: vertical; }
-    form button[type="submit"]{ margin-top: var(--space-2); }
-    fieldset{ border:0; padding:0; margin: var(--space-2) 0 0 0; }
-    legend{ font-weight:700; margin-bottom:.5rem; }
-  </style>
 </head>
-  <script>
-(function () {
-  const form = document.getElementById('enquiry-form');
-  if (!form) return;
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    try {
-      const data = new FormData(form);
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' } // tells Formspree to return JSON, not their page
-      });
-
-      if (res.ok) {
-        // Force your own thank-you page
-        window.location.href = 'https://lpaplanner.co.uk/thanks.html';
-      } else {
-        // If Formspree returns an error, fall back to normal submission
-        form.submit(); // this doesn't re-trigger the listener
-      }
-    } catch (err) {
-      // Network hiccup? Fall back to normal submission
-      form.submit();
-    }
-  });
-})();
-</script>
-
 <body>
   <header class="header" role="banner">
     <div class="container">
@@ -75,139 +28,38 @@
   <main class="section" role="main">
     <div class="container">
       <div class="card">
-        <!-- UPDATED: action now targets your Cloudflare Pages Function -->
-        <form id="enquiry-form" action="https://formspree.io/f/meolpkyv" method="POST" accept-charset="utf-8">
+        <h1>New enquiry</h1>
+        <p>If the form doesn’t load, <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__hfcdp5URU1PNkJERVQxTzlDUkZFRk5aU0JTS1ZIMy4u" target="_blank" rel="noopener">open it in a new tab</a>.</p>
 
-          <!-- meta -->
-          <input type="hidden" name="_subject" value="New enquiry via lpaplanner.co.uk">
-          <input type="hidden" name="_next" value="https://lpaplanner.co.uk/thanks.html">
-          <input type="hidden" name="service_selected" id="service_selected">
+        <!-- Microsoft Forms embed -->
+        <iframe
+          src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__hfcdp5URU1PNkJERVQxTzlDUkZFRk5aU0JTS1ZIMy4u&embed=true"
+          style="width:100%; height:2000px; border:0; max-width:100%;"
+          frameborder="0"
+          marginwidth="0"
+          marginheight="0"
+          loading="lazy"
+          allowfullscreen
+          webkitallowfullscreen
+          mozallowfullscreen
+          msallowfullscreen>
+        </iframe>
 
-          <!-- honeypot -->
-          <div style="display:none;">
-            <label>Leave this blank: <input type="text" name="_gotcha" autocomplete="off"></label>
-          </div>
+        <noscript>
+          <p><strong>JavaScript is disabled.</strong> You can access the form directly here:
+            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAZ__hfcdp5URU1PNkJERVQxTzlDUkZFRk5aU0JTS1ZIMy4u" target="_blank" rel="noopener">
+              Open Microsoft Form
+            </a>.
+          </p>
+        </noscript>
+      </div>
+    </div>
+  </main>
 
-          <!-- Core (always shown) -->
-          <div class="list cols-2">
-            <div>
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" required autocomplete="name">
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required autocomplete="email">
-            </div>
-          </div>
-
-          <div class="list cols-2" style="margin-top:1rem;">
-            <div>
-              <label for="authority">Local authority</label>
-              <input id="authority" name="local_authority" type="text" placeholder="e.g., Tandridge District Council">
-            </div>
-            <div>
-              <label for="site">Site / property address</label>
-              <input id="site" name="site_address" type="text" required autocomplete="street-address">
-            </div>
-          </div>
-
-          <div style="margin-top:1rem;">
-            <label for="service">Which service are you interested in?</label>
-            <select id="service" name="service" required>
-              <option value="quick">Quick Review (£50)</option>
-              <option value="document">Document Review (£100)</option>
-              <option value="appeal">Appeal Submission (£500+)</option>
-              <option value="unsure" selected>Unsure – please advise</option>
-            </select>
-          </div>
-
-          <div style="margin-top:1rem;">
-            <label for="summary">Brief summary</label>
-            <textarea id="summary" name="summary" rows="8" required placeholder="What’s happened so far and what outcome you’re after."></textarea>
-          </div>
-
-          <!-- Conditional: Quick Review -->
-          <fieldset id="section-quick" style="display:none;">
-            <legend>Quick Review details</legend>
-            <label>Desired outcome <input name="quick_desired_outcome" type="text"></label>
-            <label style="margin-top:.5rem;">Have you contacted the Local Planning Authority (council)?
-              <select name="quick_contacted_council">
-                <option value="">—</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </label>
-            <label style="margin-top:.5rem;">Urgency
-              <select name="quick_urgency">
-                <option value="">—</option>
-                <option value="not_urgent">Not urgent</option>
-                <option value="soon">Soon</option>
-                <option value="time_critical">Time-critical</option>
-              </select>
-            </label>
-          </fieldset>
-
-          <!-- Conditional: Document Review -->
-          <fieldset id="section-document" style="display:none;">
-            <legend>Document Review details</legend>
-            <label>Document type
-              <select name="doc_type">
-                <option value="">—</option>
-                <option value="application_refusal">Application Refusal</option>
-                <option value="enforcement_notice">Enforcement Notice</option>
-                <option value="temporary_stop_notice">Temporary Stop Notice</option>
-                <option value="breach_of_condition_notice">Breach of Condition Notice</option>
-                <option value="planning_contravention_notice">Planning Contravention Notice</option>
-                <option value="warning_letter">Warning letter</option>
-                <option value="other">Other</option>
-              </select>
-            </label>
-            <label style="margin-top:.5rem;">Council reference(s) <input name="doc_refs" type="text"></label>
-            <label style="margin-top:.5rem;">Date on document <input name="doc_date" type="date"></label>
-            <label style="margin-top:.5rem;">Main concerns <input name="doc_focus" type="text" placeholder="What should I focus on?"></label>
-          </fieldset>
-
-          <!-- Conditional: Appeal Submission -->
-          <fieldset id="section-appeal" style="display:none;">
-            <legend>Appeal Submission details</legend>
-            <label>Appeal type
-              <select name="appeal_type">
-                <option value="">—</option>
-                <option value="planning_application_refusal">Planning application refusal</option>
-                <option value="enforcement_appeal">Enforcement appeal</option>
-                <option value="other">Other</option>
-              </select>
-            </label>
-            <label style="margin-top:.5rem;">Decision/Notice date <input name="appeal_date" type="date"></label>
-            <label style="margin-top:.5rem;">Appeal/reference numbers <input name="appeal_refs" type="text"></label>
-            <label style="margin-top:.5rem;">Scale/complexity
-              <select name="appeal_scale">
-                <option value="">—</option>
-                <option value="householder">Householder</option>
-                <option value="small_commercial">Small commercial</option>
-                <option value="larger_multi_issue">Larger / multi-issue</option>
-              </select>
-            </label>
-            <label style="margin-top:.5rem;">Deadlines mentioned by the Local Planning Authority (council) <input name="appeal_deadlines" type="text"></label>
-          </fieldset>
-
-          <div class="list" style="margin-top:1rem;">
-  <label class="checkbox">
-    <input type="checkbox" name="consent" required>
-    I consent to being contacted about this enquiry and confirm I’ve read the
-    <a href="/privacy.html">privacy notice</a>.
-  </label>
-
-  <label class="checkbox">
-    <input type="checkbox" name="legal_disclaimer" required>
-    I understand LPA Planner provides planning consultancy only and does not
-    provide legal advice or legal representation. I remain responsible for any
-    statutory deadlines unless we agree otherwise in writing. I have read and
-    agree to the <a href="/terms.html">Terms</a>.
-  </label>
-</div> <!-- ✅ close the .list div -->
-
-<!-- now the button is separate - lets stick with that for the time being. -->
-<button type="submit" class="button">Send enquiry</button>
-</form>
-
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 LPA Planner. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
