@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LPA Planner · New Enquiry</title>
 
-  <!-- USE THE SAME PATH YOUR OTHER PAGES USE -->
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <!-- If your other pages use "./style.css" or "/assets/style.css", change it here too. -->
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Minimal, form-only styles (brand comes from style.css) -->
   <style>
@@ -25,12 +23,12 @@
   </style>
 </head>
 <body>
-  <!-- Header uses your site classes/styles from style.css -->
   <header class="header" role="banner">
     <div class="container">
       <a class="brand" href="/">
-        <span class="brand-logo"><img src="/assets/img/logo-mark.svg" alt="LPA Planner" width="36" height="36" /></span>
-        
+        <span class="brand-logo">
+          <img src="assets/img/logo-mark.svg" alt="LPA Planner" width="36" height="36" />
+        </span>
         <span class="brand-title">LPA Planner</span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -76,18 +74,17 @@
             </div>
             <div>
               <label for="site">Site / property address</label>
-              <input id="site" name="site_address" type="text" autocomplete="street-address">
+              <input id="site" name="site_address" type="text" required autocomplete="street-address">
             </div>
           </div>
 
           <div style="margin-top:1rem;">
             <label for="service">Which service are you interested in?</label>
             <select id="service" name="service" required>
-              <option value="" disabled selected>Select one…</option>
               <option value="quick">Quick Review (£50)</option>
               <option value="document">Document Review (£100)</option>
               <option value="appeal">Appeal Submission (£500+)</option>
-              <option value="unsure">Unsure – please advise</option>
+              <option value="unsure" selected>Unsure – please advise</option>
             </select>
           </div>
 
@@ -97,7 +94,7 @@
           </div>
 
           <!-- Conditional: Quick Review -->
-          <fieldset id="section-quick">
+          <fieldset id="section-quick" style="display:none;">
             <legend>Quick Review details</legend>
             <label>Desired outcome <input name="quick_desired_outcome" type="text"></label>
             <label style="margin-top:.5rem;">Have you contacted the Local Planning Authority (council)?
@@ -118,7 +115,7 @@
           </fieldset>
 
           <!-- Conditional: Document Review -->
-          <fieldset id="section-document">
+          <fieldset id="section-document" style="display:none;">
             <legend>Document Review details</legend>
             <label>Document type
               <select name="doc_type">
@@ -138,7 +135,7 @@
           </fieldset>
 
           <!-- Conditional: Appeal Submission -->
-          <fieldset id="section-appeal">
+          <fieldset id="section-appeal" style="display:none;">
             <legend>Appeal Submission details</legend>
             <label>Appeal type
               <select name="appeal_type">
@@ -187,19 +184,15 @@
       };
 
       function showSection(val) {
-        Object.values(sections).forEach(el => el && (el.style.display = 'none'));
+        Object.values(sections).forEach(el => el.style.display = 'none');
         if (sections[val]) sections[val].style.display = '';
         hidden.value = val || '';
       }
 
-      // preselect from ?service=quick|document|appeal|unsure
-      const params = new URLSearchParams(location.search);
-      const pre = params.get('service');
-      if (pre && ['quick','document','appeal','unsure'].includes(pre)) {
-        select.value = pre;
-        showSection(pre);
-      }
+      // default: hide all
+      showSection(select.value);
 
+      // update when dropdown changes
       select.addEventListener('change', e => showSection(e.target.value));
     })();
   </script>
