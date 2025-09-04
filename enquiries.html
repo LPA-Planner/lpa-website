@@ -1,70 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LPA Planner · New Enquiry</title>
+  <title>LPA Planner – Planning Enforcement Specialist</title>
 
-  <style>
-    /* --- Global shell & header to match the rest of the site --- */
-    .shell { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-
-    .site-header { background: var(--brand); border-bottom: 1px solid var(--border); }
-.site-header .shell { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px; }
-.brand { font-weight:800; text-decoration:none; color:var(--brand-ink); font-size:1.5rem; }
-.main-nav { display:flex; gap:18px; margin-top:8px; }
-.main-nav a { text-decoration:none; color:var(--brand-ink); font-weight:600; }
-.main-nav a:hover, .main-nav a:focus { text-decoration:underline; outline:none; }
-
-
-    /* --- Form styling (as before) --- */
-    :root {
-      --brand: #0b6ef3;
-      --brand-ink: #ffffff;
-      --text: #101828;
-      --muted: #667085;
-      --surface: #ffffff;
-      --bg: #f6f7f9;
-      --border: #e4e7ec;
-      --focus: #84caff;
-      --radius: 12px;
-      --shadow: 0 2px 6px rgba(16,24,40,0.08);
-      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
-    }
-    body {margin:0; background:var(--bg); font-family:var(--font); color:var(--text);} 
-    form {background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);}
-    label {font-weight:600; display:block; margin-top:.5rem;}
-    form input,
-form select,
-form textarea {
-  display:block;
-  width:100%;
-  max-width:100%;
-  box-sizing:border-box;
-  padding:10px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  font:inherit;
-}
-    textarea {resize:vertical;}
-    input:focus, select:focus, textarea:focus {outline:3px solid var(--focus); border-color:var(--focus);}
-    button {background:var(--brand); color:var(--brand-ink); border:none; padding:12px 20px; border-radius:999px; font-weight:700; cursor:pointer; margin-top:1rem;}
-    button:hover {opacity:.9;}
-    .checkbox {display:flex; align-items:flex-start; gap:.5rem; margin-top:1rem;}
-    .checkbox input {width:auto; margin-top:.2rem;}
-    a {color:var(--brand);}
-  </style>
-</head>
-<body>
-  <header class="site-header" role="banner">
-    <div class="shell">
-      <a class="brand" href="/">LPA Planner</a>
-      <nav class="main-nav" aria-label="Primary">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a class="brand" href="/">
+        <div class="brand-logo" aria-hidden="true">
+          <img src="/assets/img/logo-mark.svg" alt="LPA Planner" width="36" height="36" />
+        </div>
+        <div class="brand-title">LPA Planner</div>
+      </a>
+      <nav class="nav" aria-label="Primary">
         <a href="/">Home</a>
         <a href="/services.html">Services</a>
-        <a href="/about.html">About</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
+        <a href="/contact.html">Contact</a>
       </nav>
     </div>
   </header>
