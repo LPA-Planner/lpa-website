@@ -1,187 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LPA Planner – Planning Enforcement Specialist</title>
+  <title>LPA Planner · New Enquiry</title>
 
-  <!-- Header -->
-  <header class="header">
+  <!-- This page uses ONLY the classes and tokens defined in your existing site stylesheet. -->
+  <style>
+    /* Minimal, form-only styling that plays nicely with your base theme */
+    form { width:100%; }
+    form label{ display:block; font-weight:600; margin-top: var(--space-1); }
+    form input,
+    form select,
+    form textarea{
+      display:block;
+      width:100%;
+      max-width:100%;
+      box-sizing:border-box;
+      padding:.65rem .75rem;
+      border:1px solid #eef1f3;
+      border-radius: var(--radius);
+      font:inherit;
+      line-height:1.4;
+      background:#fff;
+    }
+    form textarea{ resize: vertical; }
+    form button[type="submit"]{ margin-top: var(--space-2); }
+    /* Tiny helper so legends look like section titles within cards */
+    fieldset{ border:0; padding:0; margin: var(--space-2) 0 0 0; }
+    legend{ font-weight:700; margin-bottom:.5rem; }
+  </style>
+</head>
+<body>
+  <!-- Header copied to match the site's style.css classes -->
+  <header class="header" role="banner">
     <div class="container">
       <a class="brand" href="/">
-        <div class="brand-logo" aria-hidden="true">
-          <img src="/assets/img/logo-mark.svg" alt="LPA Planner" width="36" height="36" />
-        </div>
-        <div class="brand-title">LPA Planner</div>
+        <span class="brand-logo" aria-hidden="true"><!-- optional logo img here if you use one --></span>
+        <span class="brand-title">LPA Planner</span>
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="/">Home</a>
         <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
-        <a href="/contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="shell" role="main">
+  <main class="section" role="main">
+    <div class="container">
+      <div class="card">
+        <form action="https://formspree.io/f/meolpkyv" method="POST" accept-charset="utf-8">
+          <!-- meta -->
+          <input type="hidden" name="_subject" value="New enquiry via lpaplanner.co.uk">
+          <input type="hidden" name="_next" value="/thanks.html">
+          <input type="hidden" name="service_selected" id="service_selected">
 
-<form action="https://formspree.io/f/meolpkyv" method="POST" accept-charset="utf-8">
-  <!-- meta -->
-  <input type="hidden" name="_subject" value="New enquiry via lpaplanner.co.uk">
-  <input type="hidden" name="_next" value="/thanks.html">
-  <input type="hidden" name="service_selected" id="service_selected">
+          <!-- honeypot -->
+          <div style="display:none;">
+            <label>Leave this blank: <input type="text" name="_gotcha" autocomplete="off"></label>
+          </div>
 
-  <!-- honeypot -->
-  <div style="display:none;">
-    <label>Leave this blank: <input type="text" name="_gotcha" autocomplete="off"></label>
-  </div>
+          <!-- Core (always shown) -->
+          <div class="list cols-2">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" required autocomplete="name">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required autocomplete="email">
+            </div>
+          </div>
 
-  <!-- Core (always shown) -->
-  <div class="list cols-2">
-    <div>
-      <label for="name">Your name</label>
-      <input id="name" name="name" type="text" required autocomplete="name">
+          <div class="list cols-2" style="margin-top:1rem;">
+            <div>
+              <label for="authority">Local authority (optional)</label>
+              <input id="authority" name="local_authority" type="text" placeholder="e.g., Tandridge District Council">
+            </div>
+            <div>
+              <label for="site">Site address (optional)</label>
+              <input id="site" name="site_address" type="text" autocomplete="street-address">
+            </div>
+          </div>
+
+          <div style="margin-top:1rem;">
+            <label for="service">Which service are you interested in?</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select one…</option>
+              <option value="quick">Quick Review (£50)</option>
+              <option value="document">Document Review (£100)</option>
+              <option value="appeal">Appeal Submission (£500+)</option>
+              <option value="unsure">Unsure – please advise</option>
+            </select>
+          </div>
+
+          <div style="margin-top:1rem;">
+            <label for="summary">Brief summary</label>
+            <textarea id="summary" name="summary" rows="8" required placeholder="What’s happened so far and what outcome you’re after."></textarea>
+          </div>
+
+          <!-- Conditional: Quick Review -->
+          <fieldset id="section-quick">
+            <legend>Quick Review details</legend>
+            <label>Desired outcome <input name="quick_desired_outcome" type="text"></label>
+            <label style="margin-top:.5rem;">Have you contacted the Local Planning Authority (council)?
+              <select name="quick_contacted_council">
+                <option value="">—</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </label>
+            <label style="margin-top:.5rem;">Urgency
+              <select name="quick_urgency">
+                <option value="">—</option>
+                <option value="not_urgent">Not urgent</option>
+                <option value="soon">Soon</option>
+                <option value="time_critical">Time-critical</option>
+              </select>
+            </label>
+          </fieldset>
+
+          <!-- Conditional: Document Review -->
+          <fieldset id="section-document">
+            <legend>Document Review details</legend>
+            <label>Document type
+              <select name="doc_type">
+                <option value="">—</option>
+                <option value="application_refusal">Application Refusal</option>
+                <option value="enforcement_notice">Enforcement Notice</option>
+                <option value="temporary_stop_notice">Temporary Stop Notice</option>
+                <option value="breach_of_condition_notice">Breach of Condition Notice</option>
+                <option value="planning_contravention_notice">Planning Contravention Notice</option>
+                <option value="warning_letter">Warning letter</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label style="margin-top:.5rem;">Council reference(s) <input name="doc_refs" type="text"></label>
+            <label style="margin-top:.5rem;">Date on document <input name="doc_date" type="date"></label>
+            <label style="margin-top:.5rem;">Main concerns <input name="doc_focus" type="text" placeholder="What should I focus on?"></label>
+          </fieldset>
+
+          <!-- Conditional: Appeal Submission -->
+          <fieldset id="section-appeal">
+            <legend>Appeal Submission details</legend>
+            <label>Appeal type
+              <select name="appeal_type">
+                <option value="">—</option>
+                <option value="planning_application_refusal">Planning application refusal</option>
+                <option value="enforcement_appeal">Enforcement appeal</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label style="margin-top:.5rem;">Decision/Notice date <input name="appeal_date" type="date"></label>
+            <label style="margin-top:.5rem;">Appeal/reference numbers <input name="appeal_refs" type="text"></label>
+            <label style="margin-top:.5rem;">Scale/complexity
+              <select name="appeal_scale">
+                <option value="">—</option>
+                <option value="householder">Householder</option>
+                <option value="small_commercial">Small commercial</option>
+                <option value="larger_multi_issue">Larger / multi-issue</option>
+              </select>
+            </label>
+            <label style="margin-top:.5rem;">Deadlines mentioned by the Local Planning Authority (council) <input name="appeal_deadlines" type="text"></label>
+          </fieldset>
+
+          <div class="list" style="margin-top:1rem;">
+            <label class="checkbox">
+              <input type="checkbox" name="consent" required>
+              I consent to being contacted about this enquiry and confirm I’ve read the <a href="/privacy.html">privacy notice</a>.
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" name="legal_disclaimer" required>
+              I understand LPA Planner provides planning consultancy only and does not provide legal advice or legal representation. I remain responsible for any statutory deadlines unless we agree otherwise in writing. I have read and agree to the <a href="/terms.html">Terms</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="button">Send enquiry</button>
+        </form>
+      </div>
     </div>
-    <div>
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required autocomplete="email">
-    </div>
-  </div>
-
-  <div class="list cols-2" style="margin-top:1rem;">
-    <div>
-      <label for="authority">Local authority (optional)</label>
-      <input id="authority" name="local_authority" type="text" placeholder="e.g., Tandridge District Council">
-    </div>
-    <div>
-      <label for="site">Site address (optional)</label>
-      <input id="site" name="site_address" type="text" autocomplete="street-address">
-    </div>
-  </div>
-
-  <div style="margin-top:1rem;">
-    <label for="service">Which service are you interested in?</label>
-    <select id="service" name="service" required>
-      <option value="" disabled selected>Select one…</option>
-      <option value="quick">Quick Review (£50)</option>
-      <option value="document">Document Review (£100)</option>
-      <option value="appeal">Appeal Submission (£500+)</option>
-      <option value="unsure">Unsure – please advise</option>
-    </select>
-  </div>
-
-  <div style="margin-top:1rem;">
-    <label for="summary">Brief summary</label>
-    <textarea id="summary" name="summary" rows="8" required placeholder="What’s happened so far and what outcome you’re after."></textarea>
-  </div>
-
-  <!-- Conditional: Quick Review -->
-  <fieldset id="section-quick" style="display:none; margin-top:1rem;">
-    <legend>Quick Review details</legend>
-    <label>Desired outcome <input name="quick_desired_outcome" type="text"></label>
-    <label style="margin-top:.5rem;">Have you contacted the Local Planning Authority (council)?
-      <select name="quick_contacted_council">
-        <option value="">—</option>
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-      </select>
-    </label>
-    <label style="margin-top:.5rem;">Urgency
-      <select name="quick_urgency">
-        <option value="">—</option>
-        <option value="not_urgent">Not urgent</option>
-        <option value="soon">Soon</option>
-        <option value="time_critical">Time-critical</option>
-      </select>
-    </label>
-  </fieldset>
-
-  <!-- Conditional: Document Review -->
-  <fieldset id="section-document" style="display:none; margin-top:1rem;">
-    <legend>Document Review details</legend>
-    <label>Document type
-      <select name="doc_type">
-        <option value="">—</option>
-        <option value="application_refusal">Application Refusal</option>
-        <option value="enforcement_notice">Enforcement Notice</option>
-        <option value="temporary_stop_notice">Temporary Stop Notice</option>
-        <option value="breach_of_condition_notice">Breach of Condition Notice</option>
-        <option value="planning_contravention_notice">Planning Contravention Notice</option>
-        <option value="warning_letter">Warning letter</option>
-        <option value="other">Other</option>
-      </select>
-    </label>
-    <label style="margin-top:.5rem;">Council reference(s) <input name="doc_refs" type="text"></label>
-    <label style="margin-top:.5rem;">Date on document <input name="doc_date" type="date"></label>
-    <label style="margin-top:.5rem;">Main concerns <input name="doc_focus" type="text" placeholder="What should I focus on?"></label>
-  </fieldset>
-
-  <!-- Conditional: Appeal Submission -->
-  <fieldset id="section-appeal" style="display:none; margin-top:1rem;">
-    <legend>Appeal Submission details</legend>
-    <label>Appeal type
-      <select name="appeal_type">
-        <option value="">—</option>
-        <option value="planning_application_refusal">Planning application refusal</option>
-        <option value="enforcement_appeal">Enforcement appeal</option>
-        <option value="other">Other</option>
-      </select>
-    </label>
-    <label style="margin-top:.5rem;">Decision/Notice date <input name="appeal_date" type="date"></label>
-    <label style="margin-top:.5rem;">Appeal/reference numbers <input name="appeal_refs" type="text"></label>
-    <label style="margin-top:.5rem;">Scale/complexity
-      <select name="appeal_scale">
-        <option value="">—</option>
-        <option value="householder">Householder</option>
-        <option value="small_commercial">Small commercial</option>
-        <option value="larger_multi_issue">Larger / multi-issue</option>
-      </select>
-    </label>
-    <label style="margin-top:.5rem;">Deadlines mentioned by the Local Planning Authority (council) <input name="appeal_deadlines" type="text"></label>
-  </fieldset>
-
-  <div class="checkbox">
-    <input type="checkbox" name="consent" required>
-    <label>I consent to being contacted about this enquiry and confirm I’ve read the <a href="/privacy.html">privacy notice</a>.</label>
-  </div>
-
-  <div class="checkbox">
-    <input type="checkbox" name="legal_disclaimer" required>
-    <label>I understand LPA Planner provides planning consultancy only and does not provide legal advice or legal representation. I remain responsible for any statutory deadlines unless we agree otherwise in writing. I have read and agree to the <a href="/terms.html">Terms</a>.</label>
-  </div>
-
-  <button type="submit">Send enquiry</button>
-</form>
   </main>
 
-<script>
-  (function() {
-    const select = document.getElementById('service');
-    const hidden = document.getElementById('service_selected');
-    const sections = {
-      quick: document.getElementById('section-quick'),
-      document: document.getElementById('section-document'),
-      appeal: document.getElementById('section-appeal')
-    };
+  <script>
+    (function() {
+      const select = document.getElementById('service');
+      const hidden = document.getElementById('service_selected');
+      const sections = {
+        quick: document.getElementById('section-quick'),
+        document: document.getElementById('section-document'),
+        appeal: document.getElementById('section-appeal')
+      };
 
-    function showSection(val) {
-      Object.values(sections).forEach(el => el && (el.style.display = 'none'));
-      if (sections[val]) sections[val].style.display = '';
-      hidden.value = val || '';
-    }
+      function showSection(val) {
+        Object.values(sections).forEach(el => el && (el.style.display = 'none'));
+        if (sections[val]) sections[val].style.display = '';
+        hidden.value = val || '';
+      }
 
-    const params = new URLSearchParams(location.search);
-    const pre = params.get('service');
-    if (pre && ['quick','document','appeal','unsure'].includes(pre)) {
-      select.value = pre;
-      showSection(pre);
-    }
+      // preselect from ?service=quick|document|appeal|unsure
+      const params = new URLSearchParams(location.search);
+      const pre = params.get('service');
+      if (pre && ['quick','document','appeal','unsure'].includes(pre)) {
+        select.value = pre;
+        showSection(pre);
+      }
 
-    select.addEventListener('change', e => showSection(e.target.value));
-  })();
-</script>
-
+      select.addEventListener('change', e => showSection(e.target.value));
+    })();
+  </script>
 </body>
 </html>
