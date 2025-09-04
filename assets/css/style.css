@@ -52,7 +52,7 @@ img{ max-width:100%; height:auto; display:block; }
   width:36px; height:36px; border-radius:10px; background:#fff1; display:grid; place-items:center;
   border:1px solid #ffffff26;
 }
-.brand-title{ font-weight:700; letter-spacing:.2px; font-size: 1.4rem;}
+.brand-title{ font-weight:700; letter-spacing:.2px; font-size: 1.7rem;}
 .nav{
   margin-top: var(--space-2); display:flex; gap:1rem; flex-wrap:wrap;
 }
