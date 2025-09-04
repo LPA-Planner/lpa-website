@@ -112,12 +112,25 @@ a{ color:var(--brand-accent); }
   object-fit: contain;
   display: block;
 }
+/* ====== Homepage spacing tighten ====== */
 
-/* Tighter spacing only on the homepage */
-.home .section {
-  padding: 0.5rem 0;   /* reduce top/bottom padding */
+/* Reduce the big gap after the hero */
+.home .hero .container {
+  padding-bottom: 0.75rem;   /* was 2rem */
 }
 
+/* Sections on the homepage: much tighter vertical rhythm */
+.home .section {
+  padding: 0.5rem 0;         /* was 1.5rem top/bottom */
+}
+
+/* Reduce the internal container padding for sections only on home */
+.home .section > .container {
+  padding-top: 1rem;         /* was 2rem */
+  padding-bottom: 1rem;      /* was 2rem */
+}
+
+/* Headings on home: trim the default large top margin */
 .home h2 {
-  margin-top: 0.5rem;  /* reduce the extra margin above headings */
+  margin-top: 0.5rem;        /* was var(--space-3) = 1.5rem */
 }
