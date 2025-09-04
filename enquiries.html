@@ -22,6 +22,37 @@
     legend{ font-weight:700; margin-bottom:.5rem; }
   </style>
 </head>
+  <script>
+(function () {
+  const form = document.getElementById('enquiry-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' } // tells Formspree to return JSON, not their page
+      });
+
+      if (res.ok) {
+        // Force your own thank-you page
+        window.location.href = 'https://lpaplanner.co.uk/thanks.html';
+      } else {
+        // If Formspree returns an error, fall back to normal submission
+        form.submit(); // this doesn't re-trigger the listener
+      }
+    } catch (err) {
+      // Network hiccup? Fall back to normal submission
+      form.submit();
+    }
+  });
+})();
+</script>
+
 <body>
   <header class="header" role="banner">
     <div class="container">
@@ -45,7 +76,7 @@
     <div class="container">
       <div class="card">
         <!-- UPDATED: action now targets your Cloudflare Pages Function -->
-        <form action="https://formspree.io/f/meolpkyv" method="POST" accept-charset="utf-8">
+        <form id="enquiry-form" action="https://formspree.io/f/meolpkyv" method="POST" accept-charset="utf-8">
 
           <!-- meta -->
           <input type="hidden" name="_subject" value="New enquiry via lpaplanner.co.uk">
