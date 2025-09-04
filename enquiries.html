@@ -33,7 +33,18 @@
     body {margin:0; background:var(--bg); font-family:var(--font); color:var(--text);} 
     form {background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);}
     label {font-weight:600; display:block; margin-top:.5rem;}
-    input, select, textarea {width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; font:inherit;}
+    form input,
+form select,
+form textarea {
+  display:block;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font:inherit;
+}
     textarea {resize:vertical;}
     input:focus, select:focus, textarea:focus {outline:3px solid var(--focus); border-color:var(--focus);}
     button {background:var(--brand); color:var(--brand-ink); border:none; padding:12px 20px; border-radius:999px; font-weight:700; cursor:pointer; margin-top:1rem;}
