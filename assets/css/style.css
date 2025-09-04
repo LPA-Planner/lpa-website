@@ -113,3 +113,11 @@ a{ color:var(--brand-accent); }
   display: block;
 }
 
+/* Tighter spacing only on the homepage */
+.home .section {
+  padding: 1rem 0;   /* reduce top/bottom padding */
+}
+
+.home h2 {
+  margin-top: 1rem;  /* reduce the extra margin above headings */
+}
