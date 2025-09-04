@@ -1,3 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LPA Planner · New Enquiry</title>
+
+  <style>
+    :root {
+      --brand: #0b6ef3;
+      --brand-ink: #ffffff;
+      --text: #101828;
+      --muted: #667085;
+      --surface: #ffffff;
+      --bg: #f6f7f9;
+      --border: #e4e7ec;
+      --focus: #84caff;
+      --radius: 12px;
+      --shadow: 0 2px 6px rgba(16,24,40,0.08);
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
+    }
+    body {margin:0; background:var(--bg); font-family:var(--font); color:var(--text);} 
+    form {background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);}
+    label {font-weight:600; display:block; margin-top:.5rem;}
+    input, select, textarea {width:100%; padding:10px; border:1px solid var(--border); border-radius:8px; font:inherit;}
+    textarea {resize:vertical;}
+    input:focus, select:focus, textarea:focus {outline:3px solid var(--focus); border-color:var(--focus);}
+    button {background:var(--brand); color:var(--brand-ink); border:none; padding:12px 20px; border-radius:999px; font-weight:700; cursor:pointer; margin-top:1rem;}
+    button:hover {opacity:.9;}
+    .checkbox {display:flex; align-items:flex-start; gap:.5rem; margin-top:1rem;}
+    .checkbox input {width:auto; margin-top:.2rem;}
+    a {color:var(--brand);}
+  </style>
+</head>
+<body>
+
 <form action="https://formspree.io/f/meolpkyv" method="POST" accept-charset="utf-8">
   <!-- meta -->
   <input type="hidden" name="_subject" value="New enquiry via lpaplanner.co.uk">
@@ -52,14 +88,14 @@
   <fieldset id="section-quick" style="display:none; margin-top:1rem;">
     <legend>Quick Review details</legend>
     <label>Desired outcome <input name="quick_desired_outcome" type="text"></label>
-    <label style="display:block; margin-top:.5rem;">Have you contacted the Local Planning Authority (council)?
+    <label style="margin-top:.5rem;">Have you contacted the Local Planning Authority (council)?
       <select name="quick_contacted_council">
         <option value="">—</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
       </select>
     </label>
-    <label style="display:block; margin-top:.5rem;">Urgency
+    <label style="margin-top:.5rem;">Urgency
       <select name="quick_urgency">
         <option value="">—</option>
         <option value="not_urgent">Not urgent</option>
@@ -72,7 +108,7 @@
   <!-- Conditional: Document Review -->
   <fieldset id="section-document" style="display:none; margin-top:1rem;">
     <legend>Document Review details</legend>
-    <label style="display:block;">Document type
+    <label>Document type
       <select name="doc_type">
         <option value="">—</option>
         <option value="application_refusal">Application Refusal</option>
@@ -84,16 +120,15 @@
         <option value="other">Other</option>
       </select>
     </label>
-    <label style="display:block; margin-top:.5rem;">Council reference(s) <input name="doc_refs" type="text"></label>
-    <label style="display:block; margin-top:.5rem;">Date on document <input name="doc_date" type="date"></label>
-    <label style="display:block; margin-top:.5rem;">Main concerns <input name="doc_focus" type="text" placeholder="What should I focus on?"></label>
-    <!-- File upload possible later if your Formspree plan allows -->
+    <label style="margin-top:.5rem;">Council reference(s) <input name="doc_refs" type="text"></label>
+    <label style="margin-top:.5rem;">Date on document <input name="doc_date" type="date"></label>
+    <label style="margin-top:.5rem;">Main concerns <input name="doc_focus" type="text" placeholder="What should I focus on?"></label>
   </fieldset>
 
   <!-- Conditional: Appeal Submission -->
   <fieldset id="section-appeal" style="display:none; margin-top:1rem;">
     <legend>Appeal Submission details</legend>
-    <label style="display:block;">Appeal type
+    <label>Appeal type
       <select name="appeal_type">
         <option value="">—</option>
         <option value="planning_application_refusal">Planning application refusal</option>
@@ -101,9 +136,9 @@
         <option value="other">Other</option>
       </select>
     </label>
-    <label style="display:block; margin-top:.5rem;">Decision/Notice date <input name="appeal_date" type="date"></label>
-    <label style="display:block; margin-top:.5rem;">Appeal/reference numbers <input name="appeal_refs" type="text"></label>
-    <label style="display:block; margin-top:.5rem;">Scale/complexity
+    <label style="margin-top:.5rem;">Decision/Notice date <input name="appeal_date" type="date"></label>
+    <label style="margin-top:.5rem;">Appeal/reference numbers <input name="appeal_refs" type="text"></label>
+    <label style="margin-top:.5rem;">Scale/complexity
       <select name="appeal_scale">
         <option value="">—</option>
         <option value="householder">Householder</option>
@@ -111,24 +146,20 @@
         <option value="larger_multi_issue">Larger / multi-issue</option>
       </select>
     </label>
-    <label style="display:block; margin-top:.5rem;">Deadlines mentioned by the Local Planning Authority (council) <input name="appeal_deadlines" type="text"></label>
+    <label style="margin-top:.5rem;">Deadlines mentioned by the Local Planning Authority (council) <input name="appeal_deadlines" type="text"></label>
   </fieldset>
 
-  <div style="margin-top:1rem;">
-    <label class="checkbox">
-      <input type="checkbox" name="consent" required>
-      I consent to being contacted about this enquiry and confirm I’ve read the <a href="/privacy.html">privacy notice</a>.
-    </label>
+  <div class="checkbox">
+    <input type="checkbox" name="consent" required>
+    <label>I consent to being contacted about this enquiry and confirm I’ve read the <a href="/privacy.html">privacy notice</a>.</label>
   </div>
 
-  <div>
-    <label class="checkbox">
-      <input type="checkbox" name="legal_disclaimer" required>
-      I understand LPA Planner provides planning consultancy only and does not provide legal advice or legal representation. I remain responsible for any statutory deadlines unless we agree otherwise in writing. I have read and agree to the <a href="/terms.html">Terms</a>.
-    </label>
+  <div class="checkbox">
+    <input type="checkbox" name="legal_disclaimer" required>
+    <label>I understand LPA Planner provides planning consultancy only and does not provide legal advice or legal representation. I remain responsible for any statutory deadlines unless we agree otherwise in writing. I have read and agree to the <a href="/terms.html">Terms</a>.</label>
   </div>
 
-  <button type="submit" style="margin-top:1rem;">Send enquiry</button>
+  <button type="submit">Send enquiry</button>
 </form>
 
 <script>
@@ -147,7 +178,6 @@
       hidden.value = val || '';
     }
 
-    // preselect from ?service=quick|document|appeal|unsure
     const params = new URLSearchParams(location.search);
     const pre = params.get('service');
     if (pre && ['quick','document','appeal','unsure'].includes(pre)) {
@@ -158,3 +188,6 @@
     select.addEventListener('change', e => showSection(e.target.value));
   })();
 </script>
+
+</body>
+</html>
