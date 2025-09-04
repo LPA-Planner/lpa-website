@@ -28,7 +28,7 @@
     </div>
     <div>
       <label for="site">Site address (optional)</label>
-      <input id="site" name="site_address" type="text">
+      <input id="site" name="site_address" type="text" autocomplete="street-address">
     </div>
   </div>
 
@@ -52,14 +52,19 @@
   <fieldset id="section-quick" style="display:none; margin-top:1rem;">
     <legend>Quick Review details</legend>
     <label>Desired outcome <input name="quick_desired_outcome" type="text"></label>
-    <label style="display:block; margin-top:.5rem;">Have you contacted the local planning authority / Council?
+    <label style="display:block; margin-top:.5rem;">Have you contacted the Local Planning Authority (council)?
       <select name="quick_contacted_council">
-        <option value="">—</option><option>Yes</option><option>No</option>
+        <option value="">—</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
       </select>
     </label>
     <label style="display:block; margin-top:.5rem;">Urgency
       <select name="quick_urgency">
-        <option value="">—</option><option>Not urgent</option><option>Soon</option><option>Time-critical</option>
+        <option value="">—</option>
+        <option value="not_urgent">Not urgent</option>
+        <option value="soon">Soon</option>
+        <option value="time_critical">Time-critical</option>
       </select>
     </label>
   </fieldset>
@@ -70,15 +75,19 @@
     <label style="display:block;">Document type
       <select name="doc_type">
         <option value="">—</option>
-        <option>Application Refusal</option><option>Enforcement Notice</option><option>Temoprary Stop Notice</option>
-        <option>Breach of Condition Notice</option><option>Planning Contravention Notice</option>
-        <option>Warning letter</option><option>Other</option>
+        <option value="application_refusal">Application Refusal</option>
+        <option value="enforcement_notice">Enforcement Notice</option>
+        <option value="temporary_stop_notice">Temporary Stop Notice</option>
+        <option value="breach_of_condition_notice">Breach of Condition Notice</option>
+        <option value="planning_contravention_notice">Planning Contravention Notice</option>
+        <option value="warning_letter">Warning letter</option>
+        <option value="other">Other</option>
       </select>
     </label>
     <label style="display:block; margin-top:.5rem;">Council reference(s) <input name="doc_refs" type="text"></label>
     <label style="display:block; margin-top:.5rem;">Date on document <input name="doc_date" type="date"></label>
-    <label style="display:block; margin-top:.5rem;">Top 1–2 concerns <input name="doc_focus" type="text" placeholder="What should I focus on?"></label>
-    <!-- If you later enable file upload via Formspree/plan, add: <input type="file" name="doc_file"> -->
+    <label style="display:block; margin-top:.5rem;">Main concerns <input name="doc_focus" type="text" placeholder="What should I focus on?"></label>
+    <!-- File upload possible later if your Formspree plan allows -->
   </fieldset>
 
   <!-- Conditional: Appeal Submission -->
@@ -87,19 +96,22 @@
     <label style="display:block;">Appeal type
       <select name="appeal_type">
         <option value="">—</option>
-        <option>Planning application refusal</option>
-        <option>Enforcement appeal</option>
-        <option>Other</option>
+        <option value="planning_application_refusal">Planning application refusal</option>
+        <option value="enforcement_appeal">Enforcement appeal</option>
+        <option value="other">Other</option>
       </select>
     </label>
     <label style="display:block; margin-top:.5rem;">Decision/Notice date <input name="appeal_date" type="date"></label>
     <label style="display:block; margin-top:.5rem;">Appeal/reference numbers <input name="appeal_refs" type="text"></label>
     <label style="display:block; margin-top:.5rem;">Scale/complexity
       <select name="appeal_scale">
-        <option value="">—</option><option>Householder</option><option>Small commercial</option><option>Larger / multi-issue</option>
+        <option value="">—</option>
+        <option value="householder">Householder</option>
+        <option value="small_commercial">Small commercial</option>
+        <option value="larger_multi_issue">Larger / multi-issue</option>
       </select>
     </label>
-    <label style="display:block; margin-top:.5rem;">Deadlines mentioned by the local plannig authority / council <input name="appeal_deadlines" type="text"></label>
+    <label style="display:block; margin-top:.5rem;">Deadlines mentioned by the Local Planning Authority (council) <input name="appeal_deadlines" type="text"></label>
   </fieldset>
 
   <div style="margin-top:1rem;">
@@ -107,11 +119,12 @@
       <input type="checkbox" name="consent" required>
       I consent to being contacted about this enquiry and confirm I’ve read the <a href="/privacy.html">privacy notice</a>.
     </label>
-    </div>
-    <div>
+  </div>
+
+  <div>
     <label class="checkbox">
-      <input type="checkbox" name="legal-disclaimer" required>
-      I understand that the services I am seeking does not constitute legal advice, and that the matters contained are not planing offences.
+      <input type="checkbox" name="legal_disclaimer" required>
+      I understand LPA Planner provides planning consultancy only and does not provide legal advice or legal representation. I remain responsible for any statutory deadlines unless we agree otherwise in writing. I have read and agree to the <a href="/terms.html">Terms</a>.
     </label>
   </div>
 
@@ -134,7 +147,7 @@
       hidden.value = val || '';
     }
 
-    // preselect from ?service=quick|document|appeal
+    // preselect from ?service=quick|document|appeal|unsure
     const params = new URLSearchParams(location.search);
     const pre = params.get('service');
     if (pre && ['quick','document','appeal','unsure'].includes(pre)) {
