@@ -44,7 +44,8 @@
   <main class="section" role="main">
     <div class="container">
       <div class="card">
-        <form action="https://formspree.io/f/meolpkyv" method="POST" accept-charset="utf-8">
+        <!-- UPDATED: action now targets your Cloudflare Pages Function -->
+        <form action="/api/enquiry" method="POST" accept-charset="utf-8">
           <!-- meta -->
           <input type="hidden" name="_subject" value="New enquiry via lpaplanner.co.uk">
           <input type="hidden" name="_next" value="/thanks.html">
@@ -163,38 +164,4 @@
               <input type="checkbox" name="consent" required> I consent to being contacted about this enquiry and confirm I’ve read the <a href="/privacy.html">privacy notice</a>.
             </label>
             <label class="checkbox">
-              <input type="checkbox" name="legal_disclaimer" required> I understand LPA Planner provides planning consultancy only and does not provide legal advice or legal representation. I remain responsible for any statutory deadlines unless we agree otherwise in writing. I have read and agree to the <a href="/terms.html">Terms</a>.
-            </label>
-          </div>
-
-          <button type="submit" class="button">Send enquiry</button>
-        </form>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    (function() {
-      const select = document.getElementById('service');
-      const hidden = document.getElementById('service_selected');
-      const sections = {
-        quick: document.getElementById('section-quick'),
-        document: document.getElementById('section-document'),
-        appeal: document.getElementById('section-appeal')
-      };
-
-      function showSection(val) {
-        Object.values(sections).forEach(el => el.style.display = 'none');
-        if (sections[val]) sections[val].style.display = '';
-        hidden.value = val || '';
-      }
-
-      // default: hide all
-      showSection(select.value);
-
-      // update when dropdown changes
-      select.addEventListener('change', e => showSection(e.target.value));
-    })();
-  </script>
-</body>
-</html>
+              <input type="checkbox" name="legal_disclaimer" required> I understand LPA Planner provides planning consultancy only and does not provide legal advice or legal representation._
