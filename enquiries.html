@@ -24,7 +24,7 @@
   <div class="list cols-2" style="margin-top:1rem;">
     <div>
       <label for="authority">Local authority (optional)</label>
-      <input id="authority" name="local_authority" type="text" placeholder="e.g., Southwark">
+      <input id="authority" name="local_authority" type="text" placeholder="e.g., Tandridge District Council">
     </div>
     <div>
       <label for="site">Site address (optional)</label>
@@ -45,14 +45,14 @@
 
   <div style="margin-top:1rem;">
     <label for="summary">Brief summary</label>
-    <textarea id="summary" name="summary" rows="6" required placeholder="What’s happened so far and what outcome you’re after."></textarea>
+    <textarea id="summary" name="summary" rows="8" required placeholder="What’s happened so far and what outcome you’re after."></textarea>
   </div>
 
   <!-- Conditional: Quick Review -->
   <fieldset id="section-quick" style="display:none; margin-top:1rem;">
     <legend>Quick Review details</legend>
     <label>Desired outcome <input name="quick_desired_outcome" type="text"></label>
-    <label style="display:block; margin-top:.5rem;">Have you contacted the council?
+    <label style="display:block; margin-top:.5rem;">Have you contacted the local planning authority / Council?
       <select name="quick_contacted_council">
         <option value="">—</option><option>Yes</option><option>No</option>
       </select>
@@ -70,7 +70,7 @@
     <label style="display:block;">Document type
       <select name="doc_type">
         <option value="">—</option>
-        <option>Refusal</option><option>Enforcement Notice</option>
+        <option>Application Refusal</option><option>Enforcement Notice</option><option>Temoprary Stop Notice</option>
         <option>Breach of Condition Notice</option><option>Planning Contravention Notice</option>
         <option>Warning letter</option><option>Other</option>
       </select>
@@ -99,13 +99,17 @@
         <option value="">—</option><option>Householder</option><option>Small commercial</option><option>Larger / multi-issue</option>
       </select>
     </label>
-    <label style="display:block; margin-top:.5rem;">Deadlines mentioned by council <input name="appeal_deadlines" type="text"></label>
+    <label style="display:block; margin-top:.5rem;">Deadlines mentioned by the local plannig authority / council <input name="appeal_deadlines" type="text"></label>
   </fieldset>
 
   <div style="margin-top:1rem;">
     <label class="checkbox">
       <input type="checkbox" name="consent" required>
       I consent to being contacted about this enquiry and confirm I’ve read the <a href="/privacy.html">privacy notice</a>.
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" name="legal-disclaimer" required>
+      I understand that the services I am seeking does not constitute legal advice, and that the matters contained are not planing offences.
     </label>
   </div>
 
