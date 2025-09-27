@@ -13,69 +13,78 @@
       <h1>Enquriy Form</h1>
       <p class="muted">Please complete the form below. The more detail you provide the better understanding LPA Planner has of how we can better help. Fields marked * are required.</p>
 
+
+<!-- start of form-->
+
       <form id="intakeForm" method="POST" action="">
-        <!-- action will be replaced with Power Automate endpoint later -->
+  <!-- Name -->
+  <div class="form-group" style="margin-bottom:1rem;">
+    <label for="name">Your Name *</label>
+    <input id="name" name="name" type="text" required />
+  </div>
 
-        <!-- Name -->
-        <label for="name">Your Name *</label>
-        <input id="name" name="name" type="text" required />
+  <!-- Email -->
+  <div class="form-group" style="margin-bottom:1rem;">
+    <label for="email">Email Address *</label>
+    <input id="email" name="email" type="email" required />
+  </div>
 
-        <!-- Email -->
-        <label for="email">Email Address *</label>
-        <input id="email" name="email" type="email" required />
+  <!-- Site Address -->
+  <div class="form-group" style="margin-bottom:1.5rem;">
+    <label for="siteAddress">Site Address *</label>
+    <textarea id="siteAddress" name="siteAddress" rows="4" required></textarea>
+  </div>
 
-        <!-- Site Address -->
-        <label for="siteAddress">Site Address *</label>
-        <textarea id="siteAddress" name="siteAddress" rows="4" required></textarea>
+  <!-- Urgent Review -->
+  <fieldset class="form-group" style="margin-bottom:1.5rem;">
+    <legend>Urgent Review *</legend>
+    <p class="muted">Do you require a next-day response? (Additional fees apply).</p>
+    <label><input type="radio" name="urgentReview" value="Yes" required /> Yes</label>
+    <label><input type="radio" name="urgentReview" value="No" /> No</label>
+  </fieldset>
 
-        <!-- Urgent Review -->
-        <fieldset>
-          <legend>Urgent Review *</legend>
-          <p class="muted">Do you require a next-day response? (Additional fees apply).</p>
-          <label><input type="radio" name="urgentReview" value="Yes" required /> Yes</label>
-          <label><input type="radio" name="urgentReview" value="No" /> No</label>
-        </fieldset>
+  <!-- Service -->
+  <div class="form-group" style="margin-bottom:1.5rem;">
+    <label for="service">LPA Planner Service *</label>
+    <select id="service" name="service" required>
+      <option value="">Select…</option>
+      <option value="Quick Review">Quick Review</option>
+      <option value="Document Review">Document Review</option>
+      <option value="Appeal Submission">Appeal Submission</option>
+    </select>
+    <p class="muted">Details for each service can be found on the <a href="/services.html" target="_blank" rel="noopener">Services</a> page.</p>
+  </div>
 
-        <!-- Service -->
-        <label for="service">LPA Planner Service *</label>
-        <select id="service" name="service" required>
-          <option value="">Select…</option>
-          <option value="Quick Review">Quick Review</option>
-          <option value="Document Review">Document Review</option>
-          <option value="Appeal Submission">Appeal Submission</option>
-        </select>
-        <p class="muted">
-          Details for each service can be found on the <a href="/services.html" target="_blank" rel="noopener">Services</a> page.</p>
+  <!-- Documents -->
+  <div class="form-group" style="margin-bottom:1.5rem;">
+    <label for="documents">Documents</label>
+    <textarea id="documents" name="documents" rows="2"></textarea>
+  </div>
 
-        <!-- Documents (description only) -->
-        <label for="documents">Documents</label>
-        <textarea id="documents" name="documents" rows="2" placeholder="List or describe any documents relevant to your enquiry. Copies will be requested later if needed."></textarea>
+  <!-- Summary -->
+  <div class="form-group" style="margin-bottom:1.5rem;">
+    <label for="summary">Summary *</label>
+    <textarea id="summary" name="summary" rows="10" required></textarea>
+  </div>
 
-        <!-- Summary -->
-        <label for="summary">Summary *</label>
-        <textarea id="summary" name="summary" rows="10" required placeholder="Provide as much detail as possible: letters or notices received, dates, circumstances, and desired outcomes."></textarea>
+  <!-- Disclaimer -->
+  <fieldset class="form-group" style="margin-bottom:2rem;">
+    <legend>Disclaimer *</legend>
+    <label>
+      <input type="checkbox" name="disclaimer" required />I confirm that I have permission to provide the information in this form, and that it is accurate to the best of my knowledge. I consent to being contacted about this enquiry, and confirm I have read and agree to the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms.html" target="_blank" rel="noopener">Terms and Conditions</a>.
+    </label>
+  </fieldset>
 
-        <!-- Disclaimer -->
-        <fieldset>
-          <legend>Disclaimer *</legend>
-          <label>
-            <input type="checkbox" name="disclaimer" required />
-            I confirm that I have permission to provide the information in this form, and that it is accurate to the best of my knowledge.
-            I consent to being contacted about this enquiry, and confirm I have read and agree to the
-            <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and
-            <a href="/terms.html" target="_blank" rel="noopener">Terms and Conditions</a>.
-          </label>
-        </fieldset>
+  <!-- Submit -->
+  <div style="margin-top:1rem;">
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAB3s_IjPv_oD7qbV"></div>
+    <button type="submit" class="button" style="margin-top:1rem;">Submit Enquiry</button>
+  </div>
+</form>
 
-        <!-- Submit -->
-        <div style="margin-top:1rem;">
-           <div class="cf-turnstile" data-sitekey="0x4AAAAAAB3s_IjPv_oD7qbV"></div>
-              <button type="submit" class="button">Submit Enquiry</button>
-        </div>
-        
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-      </form>
+<!-- end of form -->
+      
     </div>
   </main>
 
