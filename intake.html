@@ -19,20 +19,20 @@
       <form id="intakeForm" method="POST" action="">
   <!-- Name -->
   <div class="form-group" style="margin-bottom:1rem;">
-    <label for="name">Your Name *</label>
-    <input id="name" name="name" type="text" required />
+    <label for="name">Your Name *</label><br>
+    <input id="name" name="name" type="text" required style="width:100%;"/>
   </div>
 
   <!-- Email -->
   <div class="form-group" style="margin-bottom:1rem;">
-    <label for="email">Email Address *</label>
-    <input id="email" name="email" type="email" required />
+    <label for="email">Email Address *</label><br>
+    <input id="email" name="email" type="email" required style="width:100%;"/>
   </div>
 
   <!-- Site Address -->
   <div class="form-group" style="margin-bottom:1.5rem;">
     <label for="siteAddress">Site Address *</label><br>
-    <textarea id="siteAddress" name="siteAddress" rows="4" required></textarea>
+    <textarea id="siteAddress" name="siteAddress" rows="4" required style="width:100%;"></textarea>
   </div>
 
   <!-- Urgent Review -->
@@ -41,13 +41,14 @@
       <br><span class="muted">Do you require a next-day response? (This is a discretionary service with additional fees. You should still expect a reply in 2 working days).</span><br>
     <label><input type="radio" name="urgentReview" value="Yes" required /> Yes</label><br>
     <label><input type="radio" name="urgentReview" value="No" /> No</label>
+    <p class="muted">Please note: This is a discretionary service with additional fees. You should still expect a reply in 2 working days.</p>
   </fieldset>
 
   <!-- Service -->
   <div class="form-group" style="margin-bottom:1.5rem;">
     <label for="service">LPA Planner Service *</label><br>
      <span class="muted">Details for each service can be found on the <a href="/services.html" target="_blank" rel="noopener">Services</a> page.</span><br>
-    <select id="service" name="service" required>
+    <select id="service" name="service" required style="width:50%;">
       <option value="">Select…</option>
       <option value="Quick Review">Quick Review</option>
       <option value="Document Review">Document Review</option>
@@ -58,15 +59,15 @@
   <!-- Documents -->
   <div class="form-group" style="margin-bottom:1.5rem;">
     <label for="documents">Documents</label><br>
-    <span class="muted">Please provide a descrition of any documents that are importan to your enquiry. copies of any documents will be requested via email at a later stage.</span><br>
-    <textarea id="documents" name="documents" rows="2"></textarea>
+    <span class="muted">Please provide a description of any documents that are important to your enquiry. Copies of any documents will be requested via email at a later stage.</span><br>
+    <textarea id="documents" name="documents" rows="2" style="width:100%;"></textarea>
   </div>
 
   <!-- Summary -->
   <div class="form-group" style="margin-bottom:1.5rem;">
     <label for="summary">Summary *</label><br>
     <span class="muted">Please summarise the overall situation and provide as much detail as possible. For example, you may wish to include details of a letter or notice you received, and include dates, circumstances, and any desired outcomes.ge.</span><br>
-    <textarea id="summary" name="summary" rows="10" required></textarea>
+    <textarea id="summary" name="summary" rows="10" required style="width:100%;"></textarea>
   </div>
 
   <!-- Disclaimer -->
