@@ -112,6 +112,7 @@ a{ color:var(--brand-accent); }
   object-fit: contain;
   display: block;
 }
+
 /* ====== Homepage spacing tighten ====== */
 
 /* Reduce the big gap after the hero */
@@ -133,4 +134,22 @@ a{ color:var(--brand-accent); }
 /* Headings on home: trim the default large top margin */
 .home h2 {
   margin-top: 0.5rem;        /* was var(--space-3) = 1.5rem */
+}
+
+/* ====== Form field readability ====== */
+
+input[type="text"],
+input[type="email"],
+textarea {
+  font-size: 1rem;           /* matches base paragraph size (~16px) */
+  line-height: 1.4;
+  padding: 0.5rem;
+  font-family: var(--font);
+  color: var(--brand-text);
+  border: 1px solid #ccd1d4;
+  border-radius: 8px;
+}
+
+textarea#summary {
+  font-size: 1.05rem;        /* slightly larger for long-form content */
 }
