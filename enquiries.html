@@ -28,21 +28,26 @@
   <main class="section" role="main">
     <div class="container">
       <div class="card">
-        <h1>New enquiry</h1>
-        <p>If the form doesn’t load, <a href="https://forms.cloud.microsoft/e/pVCktmBWj0" target="_blank" rel="noopener">open it in a new tab</a>.</p>
 
-       <!-- Intake form embed -->
-         <iframe
+        <!-- Intake form embed -->
+        <iframe
           src="/intake.html"
-          style="width:100%; height:100vh; border:0; max-width:100%; display:block"
+          id="intakeFrame"
+          style="width:100%; border:0; max-width:100%; display:block;"
           frameborder="0"
           loading="lazy">
-         </iframe>
+        </iframe>
 
-         <noscript>
-           <p><strong>JavaScript is disabled.</strong> You can access the form directly here: <a href="/intake.html" target="_blank" rel="noopener">Open LPA Planner Enquiry Form</a>.</p>
-         </noscript>
-        
+        <p class="muted" style="margin-top:1rem;">
+          If this form doesn’t work, please try this <a href="https://forms.cloud.microsoft/e/pVCktmBWj0" target="_blank" rel="noopener">alternative form</a>.
+        </p>
+
+        <noscript>
+          <p><strong>JavaScript is disabled.</strong> You can access the form directly here:
+            <a href="/intake.html" target="_blank" rel="noopener">Open LPA Planner Enquiry Form</a>.
+          </p>
+        </noscript>
+
       </div>
     </div>
   </main>
@@ -52,5 +57,15 @@
       <p>&copy; 2025 LPA Planner. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Auto-resize script -->
+  <script>
+    window.addEventListener("message", function(e){
+      if (e.data && e.data.type === "resize-iframe") {
+        const frame = document.getElementById("intakeFrame");
+        frame.style.height = e.data.height + "px";
+      }
+    });
+  </script>
 </body>
 </html>
