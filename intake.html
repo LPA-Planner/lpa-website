@@ -3,94 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LPA Planner – Enquriy Form</title>
+  <title>LPA Planner – Enquiry Form</title>
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body class="intake">
 
   <main class="section">
     <div class="container" style="max-width:800px;">
-      <h1>Enquriy Form</h1>
+      <h1>Enquiry Form</h1>
       <p class="muted">Please complete the form below, giving as much detail as possible. <br>Fields marked * are required.</p>
 
-
-<!-- start of form-->
-
+      <!-- start of form -->
       <form id="intakeForm" method="POST" action="/submit">
-  <!-- Name -->
-  <div class="form-group" style="margin-bottom:1rem;">
-    <label for="name">Your Name *</label><br>
-    <input id="name" name="name" type="text" required style="width:100%;"/>
-  </div>
+        <!-- Name -->
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label for="name">Your Name *</label><br>
+          <input id="name" name="name" type="text" required style="width:100%;" />
+        </div>
 
-  <!-- Email -->
-  <div class="form-group" style="margin-bottom:1rem;">
-    <label for="email">Email Address *</label><br>
-    <input id="email" name="email" type="email" required style="width:100%;"/>
-  </div>
+        <!-- Email -->
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label for="email">Email Address *</label><br>
+          <input id="email" name="email" type="email" required style="width:100%;" />
+        </div>
 
-  <!-- Site Address -->
-  <div class="form-group" style="margin-bottom:1rem;">
-    <label for="siteAddress">Site Address *</label><br>
-    <textarea id="siteAddress" name="siteAddress" rows="4" required style="width:100%;"></textarea>
-  </div>
+        <!-- Site Address -->
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label for="siteAddress">Site Address *</label><br>
+          <textarea id="siteAddress" name="siteAddress" rows="4" required style="width:100%;"></textarea>
+        </div>
 
-  <!-- Urgent Review -->
-  <fieldset class="form-group" style="margin-bottom:1.5rem;">
-    <legend>Urgent Review *</legend>
-      <span class="muted">Do you need our discretionary next-day response service (<a href="/terms.html" target="_blank" rel="noopener">Terms</a> and fees apply)?</span><br>
-    <label><input type="radio" name="urgentReview" value="Yes" required /> Yes</label><br>
-    <label><input type="radio" name="urgentReview" value="No" /> No</label>
-   </fieldset>
+        <!-- Urgent Review -->
+        <fieldset class="form-group" style="margin-bottom:1.5rem;">
+          <legend>Urgent Review *</legend>
+          <span class="muted">Do you need our discretionary next-day response service (<a href="/terms.html" target="_blank" rel="noopener">Terms</a> and fees apply)?</span><br>
+          <label><input type="radio" name="urgentReview" value="Yes" required /> Yes</label><br>
+          <label><input type="radio" name="urgentReview" value="No" /> No</label>
+        </fieldset>
 
-  <!-- Service -->
-  <div class="form-group" style="margin-bottom:1.5rem;">
-    <label for="service">LPA Planner Service *</label><br>
-     <span class="muted">Details for each service can be found on the <a href="/services.html" target="_blank" rel="noopener">Services</a> page.</span><br>
-    <select id="service" name="service" required style="width:50%; font-size:1rem">
-      <option value="">Select…</option>
-      <option value="Quick Review">Quick Review</option>
-      <option value="Document Review">Document Review</option>
-      <option value="Appeal Submission">Appeal Submission</option>
-    </select>
-   </div>
+        <!-- Service -->
+        <div class="form-group" style="margin-bottom:1.5rem;">
+          <label for="service">LPA Planner Service *</label><br>
+          <span class="muted">Details for each service can be found on the <a href="/services.html" target="_blank" rel="noopener">Services</a> page.</span><br>
+          <select id="service" name="service" required style="width:50%; font-size:1rem">
+            <option value="">Select…</option>
+            <option value="Quick Review">Quick Review</option>
+            <option value="Document Review">Document Review</option>
+            <option value="Appeal Submission">Appeal Submission</option>
+          </select>
+        </div>
 
-  <!-- Documents -->
-  <div class="form-group" style="margin-bottom:1.5rem;">
-    <label for="documents">Documents</label><br>
-    <span class="muted">Please describe any important documents. These will be requested via email at a later stage.</span><br>
-    <textarea id="documents" name="documents" rows="2" style="width:100%;"></textarea>
-  </div>
+        <!-- Documents -->
+        <div class="form-group" style="margin-bottom:1.5rem;">
+          <label for="documents">Documents</label><br>
+          <span class="muted">Please describe any important documents. These will be requested via email at a later stage.</span><br>
+          <textarea id="documents" name="documents" rows="2" style="width:100%;"></textarea>
+        </div>
 
-  <!-- Summary -->
-  <div class="form-group" style="margin-bottom:1.5rem;">
-    <label for="summary">Summary *</label><br>
-    <span class="muted">Please summarise the overall situation, including any dates, circumstances, letters or notices, and any desired outcomes.</span><br>
-    <textarea id="summary" name="summary" rows="10" required style="width:100%;"></textarea>
-  </div>
+        <!-- Summary -->
+        <div class="form-group" style="margin-bottom:1.5rem;">
+          <label for="summary">Summary *</label><br>
+          <span class="muted">Please summarise the overall situation, including any dates, circumstances, letters or notices, and any desired outcomes.</span><br>
+          <textarea id="summary" name="summary" rows="10" required style="width:100%;"></textarea>
+        </div>
 
-  <!-- Disclaimer -->
-  <fieldset class="form-group" style="margin-bottom:2rem;">
-    <legend>Disclaimer *</legend>
-    <label style="display:flex; align-items:flex-start; gap:0.5rem;">
-       <input type="checkbox" name="disclaimer" required style="width:20px; height:20px; margin-top:0.2rem;"/><span> I confirm that I have permission to provide the information in this form, and that it is accurate to the best of my knowledge. I consent to being contacted about this enquiry, and confirm I have read and agree to the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms.html" target="_blank" rel="noopener">Terms and Conditions</a>.</span>
-    </label>
-  </fieldset>
+        <!-- Disclaimer -->
+        <fieldset class="form-group" style="margin-bottom:2rem;">
+          <legend>Disclaimer *</legend>
+          <label style="display:flex; align-items:flex-start; gap:0.5rem;">
+            <input type="checkbox" name="disclaimer" required style="width:20px; height:20px; margin-top:0.2rem;" />
+            <span>I confirm that I have permission to provide the information in this form, and that it is accurate to the best of my knowledge. I consent to being contacted about this enquiry, and confirm I have read and agree to the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms.html" target="_blank" rel="noopener">Terms and Conditions</a>.</span>
+          </label>
+        </fieldset>
 
-    <!-- Submit -->
-  <div style="margin-top:1rem;">
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAAB3s_IjPv_oD7qbV"></div>
-    <button type="submit" class="button" style="margin-top:1rem; font-size:11pt;">Submit Enquiry</button>
-  </div>
-</form>
+        <!-- Submit -->
+        <div style="margin-top:1rem;">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAB3s_IjPv_oD7qbV"></div>
+          <button type="submit" class="button" style="margin-top:1rem; font-size:11pt;">Submit Enquiry</button>
+        </div>
+      </form>
 
-<!-- Cloudflare Turnstile script -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+      <!-- Cloudflare Turnstile script -->
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+      <!-- end of form -->
 
-
-
-<!-- end of form -->
-      
     </div>
   </main>
 
@@ -102,6 +98,13 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Auto-resize helper for embedded iframe -->
+  <script>
+    window.addEventListener("load", function(){
+      parent.postMessage({type: "resize-iframe", height: document.body.scrollHeight}, "*");
+    });
   </script>
 </body>
 </html>
