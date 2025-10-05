@@ -79,40 +79,81 @@
   </section>
 
   <!-- What We've Been Up To -->
-  <section class="section" style="padding-bottom:3rem;">
-    <div class="container">
-      <h2>What LPA Planner Has Been Up To</h2>
-      <p>Weekly social posts providing Weekly Insights and Weekly Reflections from LPA Planner. The posts cover varierty of topics on planning enforcement, planning myths, cose studies, myth busting, and FAQs.</p>
+  <!-- What We’ve Been Up To (horizontal scroll feed) -->
+<section class="section" style="padding-bottom:3rem;">
+  <div class="container">
+    <h2>What LPA Planner has Been Up To</h2>
+    <p>Weekly social posts providing Weekly Insights and Weekly Reflections from LPA Planner. The posts cover varierty of topics on planning enforcement, planning myths, cose studies, and FAQs.</p>
 
-      <div class="scroll-feed" style="max-height:320px; overflow-y:auto; border:1px solid #ddd; border-radius:1rem; padding:1rem; background-color:#fff;">
-        <article class="post">
-          <h3>When is an outbuilding <em>really</em> incidental?</h3>
-          <p class="muted">Reflecting on a case where a beauty studio in a garden building turned out to be a material change of use and not a hobby room.  
-          The key was understanding the purpose for which the building was erected.</p>
-          <p><a href="https://linkedin.com/company/lpa-planner" target="_blank">Read more on LinkedIn →</a></p>
-        </article>
-        <hr>
+    <div class="scroll-container">
+      <div class="scroll-track">
+        
+        <!-- Post 1 (LinkedIn embed example) -->
+        <div class="post-card">
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7378522797075087361" height="774" width="504" frameborder="0" allowfullscreen="" title="LinkedIn post"></iframe>"
+        </div>
 
-        <article class="post">
-          <h3>Why enforcement is a safeguard, not a punishment</h3>
-          <p class="muted">Enforcement action isn’t about penalising; it’s about restoring fairness where development tips the balance.  
-          A short reflection on the value of clear communication before escalation.</p>
-          <p><a href="https://linkedin.com/company/lpa-planner" target="_blank">Read more on LinkedIn →</a></p>
-        </article>
-        <hr>
+        <!-- Post 2 (Facebook embed example) -->
+        <div class="post-card">
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0gejYCJgXbs1T3tHxfgd3rsFc3VgvTDQe2kCMKUYQmt6VnETW8RRLf8yoV6mxoo9pl%26id%3D61580327812000&show_text=true&width=500" width="500" height="699" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          
+        </div>
 
-        <article class="post">
-          <h3>Lessons from a successful appeal</h3>
-          <p class="muted">A short case study on how clarity of wording and accurate framing can completely change the direction of a case.</p>
-          <p><a href="https://linkedin.com/company/lpa-planner" target="_blank">Read more on LinkedIn →</a></p>
-        </article>
+        <!-- Post 3 (LinkedIn embed example) -->
+        <div class="post-card">
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7377389421727338497" height="1005" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        </div>
+
+<!-- Enf of Social posts -->
+        
       </div>
-
-      <p style="margin-top:1rem;">Follow LPA Planner for more updates on  
-        <a href="https://www.facebook.com/people/LPA-Planner/61580327812000/" target="_blank">Facebook</a> and  
-        <a href="https://www.linkedin.com/company/lpa-planner" target="_blank">LinkedIn</a>.
-      </p>
     </div>
-  </section>
+
+    <p style="margin-top:1rem;">Follow LPA Planner for more updates on 
+      <a href="https://www.facebook.com/people/LPA-Planner/61580327812000/" target="_blank" rel="noopener">Facebook</a> and 
+      <a href="https://www.linkedin.com/company/lpa-planner/" target="_blank" rel="noopener">LinkedIn</a>.
+    </p>
+  </div>
+</section>
+
+<!-- Add this CSS inline or in /assets/css/style.css -->
+<style>
+.scroll-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 1rem 0;
+}
+
+.scroll-track {
+  display: flex;
+  gap: 1rem;
+  animation: scrollLeft 60s linear infinite;
+}
+
+.scroll-container:hover .scroll-track {
+  animation-play-state: paused;
+}
+
+.post-card {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 500px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color: #fff;
+}
+
+/* Keyframes for smooth leftward scroll */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
 
   <!-- Fo
