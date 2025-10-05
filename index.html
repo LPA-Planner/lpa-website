@@ -24,72 +24,6 @@
   <meta name="twitter:title" content="LPA Planner – Planning Enforcement Specialist" />
   <meta name="twitter:description" content="Clear, concise planning advice specialising in enforcement matters, refusals, and appeal submissions." />
   <meta name="twitter:image" content="https://lpaplanner.co.uk/assets/img/ICONS-og.png" />
-
-  <!-- FAQ Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is planning enforcement?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Planning enforcement is one of the three pillars of the planning system — alongside making applications and developing policy. It deals with breaches of planning control, such as unauthorised building works or changes of use. Enforcement ensures that development is fair and balanced, protecting both communities and the planning system."ƒ
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is an LPA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "LPA stands for Local Planning Authority. This is usually your local council, responsible for deciding planning applications and investigating breaches. LPA Planner reflects over a decade of experience working inside LPAs, and now offers independent advice to help homeowners, agents, and businesses navigate the system with clarity."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why choose LPA Planner?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Unlike most planning agents, LPA Planner specialises in enforcement matters. The services and fees are clear, with upfront non-committal scope of works, and you’ll always get a written outcome (options letter, report, or document suite) with practical next steps. By comparison, many agents only focus on applications, with little transparency on fees or turnaround. LPA Planner fills that gap."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who does LPA Planner help?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "LPA Planner provides planning advice for a wide range of clients: householders facing planning refusals or enforcement notices; planning agents seeking specialist enforcement support; small businesses wanting clarity on premises or compliance; amenity societies and heritage groups ensuring community and conservation interests are represented; residents’ associations and parish councils responding to planning applications in their area; and neighbours who have been notified of a nearby development proposal and want clear advice before deadlines pass. Our fixed-fee, timebound services make professional planning advice accessible without the cost of a full consultancy."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How quickly will I get a response?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Responses are provided once documents and payments have been made. Quick Reviews are issued within 2 working days, Document Reviews within 5 working days, and Appeals are aligned with statutory deadlines. Urgent same-day responses may be available for an additional fee."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you provide in-person services?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. LPA Planner provides remote-only services, with advice delivered by email. Site specifics can usually be understood from documents, maps, and photos. Video calls can be arranged where needed."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What happens if I don’t pay, or I change my mind?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "If you don’t pay, that will be treated as a cancellation of services, as explained in our Terms. If you pay, and decide to cancel before receiving the documented outcome from your chosen service, you will be refunded in line with the Terms."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body class="home">
 
@@ -137,7 +71,7 @@
   </div>
 </section>
 
-  <!-- Planning Enforcement: Why LPA Planner? -->
+  <!-- Planning Enforcement and LPA Planner -->
   <section class="section">
     <div class="container">
       <h2>Planning Enforcement and LPA Planner</h2>
@@ -164,7 +98,7 @@
       <div class="list cols-3" style="margin-top:1rem;">
         <div class="card">
           <h3>1. Enquire</h3>
-          <p>Choose the <a href="/services.html">service</a> that best suits your needs and fill out our form.</p>
+          <p>Choose the <a href="/services.html">service</a> that best suits your needs and fill out the enquiry form.</p>
         </div>
         <div class="card">
           <h3>2. Review</h3>
@@ -172,8 +106,7 @@
         </div>
         <div class="card">
           <h3>3. Outcome</h3>
-          <p>Work begins once documents are received and payment is cleared.</p>
-          <p>The documented outcome will be given within the advertised times, and can be explained if needed.</p>
+          <p>Work begins once documents are received and payment is cleared.<br>Documented outcoems will be given in the advertised times, and can be explained if needed.</p>
         </div>
       </div>
     </div>
@@ -240,6 +173,37 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    /* === Dynamic FAQ Schema Generator === */
+    (function () {
+      const faqDetails = document.querySelectorAll('section .container details');
+      if (!faqDetails.length) return;
+
+      const entities = Array.from(faqDetails).map((d) => {
+        const q = d.querySelector('summary')?.innerText.trim();
+        const a = d.innerText.replace(q, '').trim();
+        return {
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": a
+          }
+        };
+      });
+
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": entities
+      };
+
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(schema, null, 2);
+      document.head.appendChild(script);
+    })();
+    /* === End FAQ Schema Generator === */
   </script>
 </body>
 </html>
